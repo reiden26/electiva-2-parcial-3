@@ -1,0 +1,102 @@
+<app-encabezado></app-encabezado>
+<app-menu></app-menu>
+<app-seccion3></app-seccion3>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-6 border border-primary " >
+            <p class="fw-bolder fs-1 text">REVISA Y </p>
+            <p class="fw-bolder fs-1 text">REGISTRA </p>
+            <p class="fw-bolder fs-1 text"> LOS HORARIOS </p>
+            <p class="fw-bolder fs-1 text"> DE CLASE </p>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="ratio ratio-16x9">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jZ30nlTWWlw"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <img src="../../../assets/img/logo.png" class="rounded mx-auto d-block">
+<br><br>
+<h1>Registro de clases</h1>
+
+<div class="row">
+    <div class="col-log-6">
+        <form [formGroup]="myform2">
+        <p>
+            <label class="fw-bold" >Nombre de la clase</label><input type="text" class="form-control" formControlName="nom_clase"/>
+
+        </p>
+        <p>
+            <label  class="fw-bold">Descripcion</label><input type="text" class="form-control" formControlName="descripcion"/>
+
+        </p>
+        <p>
+            <label  class="fw-bold">Inicia</label><input type="daitime" class="form-control" formControlName="hora_inicio"/>
+
+        </p>
+        <p>
+            <label  class="fw-bold">Termina</label><input type="daitime" class="form-control" formControlName="hora_fin"/>
+
+        </p>
+        
+        <p><button (click)="insertarCla(myform2.value)" class="btn btn-success mx-1" >Agregar </button>
+            <button (click)="editarCla(myform2.value)" class="btn btn-warning" >Modificiar</button>
+        </p>
+
+
+        </form>
+
+    </div>
+
+<div class="col-lg-6">
+
+</div>
+</div>
+<table class="table table-striped table-bordered bg-light" >
+<tr>
+<th>Id Clase</th>
+<th>Clase</th>
+<th>Descripcion</th>
+<th>Inicia</th>
+<th>Termina</th>
+
+<th class="text-center" colspan="3">Opciones</th>
+
+</tr>
+
+<tr *ngFor="let cla of lista_clases " >
+<td> {{cla.clases_id}} </td>
+<td> {{cla.nom_clase}} </td>
+<td> {{cla.descripcion}} </td>
+<td> {{cla.hora_inicio}} </td>
+<td> {{cla.hora_fin}} </td>
+
+<td><button class="btn btn-outline-primary" (click)="seleccionarCla(cla)" >Seleccionar</button>   </td>
+<td> <button class="btn btn-outline-danger" (click)="eliminarCla(cla.clases_id)">Borrar </button></td>
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+</table>
+
+
+
+
+</div>
+<app-pie></app-pie>
